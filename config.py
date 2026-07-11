@@ -44,3 +44,11 @@ BANK_IFSC: str = os.getenv("BANK_IFSC", "XXXXXXXXX")
 
 CURRENCY_SYMBOL: str = os.getenv("CURRENCY_SYMBOL", "₹")
 BOT_NAME: str = os.getenv("BOT_NAME", "Digital Store Bot")
+
+# --- Database ---
+
+DATABASE_URL: str = os.getenv("DATABASE_URL", "")
+if not DATABASE_URL:
+    print("ERROR: DATABASE_URL is not set. Add your Supabase PostgreSQL connection string.")
+    sys.exit(1)
+
