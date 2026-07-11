@@ -11,9 +11,11 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-# Load environment variables from config.env in the project root
+# Load environment variables from config.env if it exists (local dev)
+# On cloud platforms (Render, Railway etc.) env vars are set directly
 _env_path = Path(__file__).resolve().parent / "config.env"
-load_dotenv(_env_path)
+if _env_path.exists():
+    load_dotenv(_env_path)
 
 # --- Required Settings ---
 
